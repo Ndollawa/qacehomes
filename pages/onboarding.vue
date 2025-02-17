@@ -1,10 +1,5 @@
-
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
-   <div>
-      Onboarding Page
-   </div>
+	<div>Onboarding Page</div>
 </template>

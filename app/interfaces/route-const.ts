@@ -1,0 +1,21 @@
+import type { routeConstants } from "../constants/route-const";
+
+// Extract valid route names from `routeConstants`
+export type RouteName = keyof typeof routeConstants;
+
+// Extract dynamic params from a path string (matches `:paramName`)
+export type ExtractParams<T extends string> =
+	T extends `${string}:${infer Param}/${infer Rest}`
+		? Param | ExtractParams<Rest>
+		: T extends `${string}:${infer Param}`
+			? Param
+			: never;
+
+// Generate a map of expected params for each route
+export type RouteParams = {
+	[K in RouteName]: ExtractParams<
+		(typeof routeConstants)[K]["path"]
+	> extends never
+		? {} // No params -> empty object
+		: Record<ExtractParams<(typeof routeConstants)[K]["path"]>, string>;
+};

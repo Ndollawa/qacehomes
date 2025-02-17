@@ -1,10 +1,13 @@
-<template>
-	<AuthCard> Hello </AuthCard>
-</template>
+<template></template>
 
 <script setup lang="ts">
+
 definePageMeta({
 	layout: "auth",
+});
+
+onMounted(() => {
+	// navigateTo(routeConstants)
 });
 </script>
 
