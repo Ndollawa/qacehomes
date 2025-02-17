@@ -9,12 +9,15 @@ module.exports = {
 	theme: {
 		container: {
 			center: true,
-			padding: "1rem",
+			padding: "1.5rem",
 			screens: {
 				"2xl": "1400px",
 			},
 		},
 		extend: {
+			fontFamily: {
+				primary: "var(--font-primary)",
+			},
 			colors: {
 				border: "hsl(var(--border))",
 				input: "hsl(var(--input))",

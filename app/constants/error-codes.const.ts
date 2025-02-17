@@ -1,4 +1,3 @@
-
 // No types here so that types can exist for habdleThrowError
 export const errorCodes = {
 	ERR_400: {

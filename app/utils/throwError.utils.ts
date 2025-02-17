@@ -1,4 +1,4 @@
-import { errorCodes } from "../constants/error-codes.constant";
+import { errorCodes } from "../constants/error-codes.const";
 import type { ErrorCodesT } from "../interfaces/constants/error-codes.types";
 
 /**
