@@ -1,7 +1,9 @@
+<script setup lang="ts">
+import { useHome } from "@/app/composables/pages/use-home";
+
+const { msg } = useHome();
+</script>
+
 <template>
-	<div>Home</div>
+	<div class="container">{{ msg }}</div>
 </template>
-
-<script setup lang="ts"></script>
-
-<style scoped></style>
