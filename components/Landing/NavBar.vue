@@ -1,18 +1,14 @@
 <template>
-    <nav class="w-full h-16 bg-white">
-        <div class=""></div>
-<ul>
-    <li></li>
-    <li></li>
-    <li></li>
-</ul>
-    </nav>
+	<nav class="w-full h-16 bg-white">
+		<div class=""></div>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</nav>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts"></script>
 
-</script>
-
-<style scoped>
-
-</style>
+<style scoped></style>

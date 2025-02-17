@@ -1,15 +1,11 @@
 <template>
-<AuthCard>
-    Hello
-</AuthCard>
+	<AuthCard> Hello </AuthCard>
 </template>
 
 <script setup lang="ts">
- definePageMeta({
-    layout:"auth"
- })
+definePageMeta({
+	layout: "auth",
+});
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

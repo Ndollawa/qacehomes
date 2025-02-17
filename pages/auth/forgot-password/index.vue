@@ -1,13 +1,7 @@
 <template>
-    <div>
-Forgot Password
-    </div>
+	<div>Forgot Password</div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts"></script>
 
-</script>
-
-<style scoped>
-
-</style>
+<style scoped></style>
