@@ -1,2 +1,2 @@
-export * from "./getDeviceThemeMode.utils"
-export * from "./throwError.utils"
+export * from "./getDeviceThemeMode.utils";
+export * from "./throwError.utils";
