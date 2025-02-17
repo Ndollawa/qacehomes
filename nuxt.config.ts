@@ -7,7 +7,12 @@ const isDevelopment = process.env.NODE_ENV === "development";
 export default defineNuxtConfig({
 	compatibilityDate: "2024-11-01",
 	devtools: { enabled: isDevelopment },
-	modules: ["@nuxtjs/tailwindcss", "@nuxtjs/color-mode", "shadcn-nuxt"],
+	modules: [
+      "@nuxtjs/tailwindcss", 
+      "@nuxtjs/color-mode", 
+      "shadcn-nuxt",
+      '@pinia/nuxt'
+   ],
 
 	/** Shadcn Required Configs */
 	shadcn: {
@@ -20,4 +25,9 @@ export default defineNuxtConfig({
 		fallback: "light", // Fallback theme if system preference is not available
 		classSuffix: "",
 	},
+
+   /** State Management */
+   pinia: {
+      storesDirs: ["app/store"]
+   },
 });
