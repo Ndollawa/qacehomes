@@ -1,9 +1,9 @@
-import { generateRoute } from "@/app/utils/generate-route";
+import { generateRoute } from "@/app/constants/route-const";
 
 export const useHome = () => {
 	//  Navigate to onboarding. No landing page for now
 	onMounted(() => {
-		navigateTo(generateRoute("onboarding"));
+		navigateTo(generateRoute("register"));
 	});
 
 	const msg = "Welcome to Qace Homes";

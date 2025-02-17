@@ -1,10 +1,6 @@
-type ErrorCode = {
-	message: string;
-	statusCode: number;
-	description?: string; // Optional description
-};
 
-export const errorCodes: Record<string, ErrorCode> = {
+// No types here so that types can exist for habdleThrowError
+export const errorCodes = {
 	ERR_400: {
 		message: "Bad Request",
 		statusCode: 400,

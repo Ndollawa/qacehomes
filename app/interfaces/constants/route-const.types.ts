@@ -1,4 +1,4 @@
-import type { routeConstants } from "../constants/route-const";
+import type { routeConstants } from "@/app/constants";
 
 // Extract valid route names from `routeConstants`
 export type RouteName = keyof typeof routeConstants;
@@ -17,5 +17,5 @@ export type RouteParams = {
 		(typeof routeConstants)[K]["path"]
 	> extends never
 		? {} // No params -> empty object
-		: Record<ExtractParams<(typeof routeConstants)[K]["path"]>, string>;
+		: Partial<Record<ExtractParams<(typeof routeConstants)[K]["path"]>, string>>;
 };

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useHome } from "@/app/composables/pages/use-home";
+import { useHome } from "@/composables/pages/use-home";
 
 const { msg } = useHome();
 </script>
