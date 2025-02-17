@@ -1,8 +1,11 @@
-import type { RouteName, RouteParams } from "../interfaces/route-const";
+import type {
+	RouteName,
+	RouteParams,
+} from "../interfaces/constants/route-const.types";
 
 export const routeConstants = {
 	onboarding: {
-		path: "/onboarding",
+		path: "/auth",
 		name: "onboarding",
 	},
 	login: {

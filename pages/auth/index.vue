@@ -4,10 +4,6 @@
 definePageMeta({
 	layout: "auth",
 });
-
-onMounted(() => {
-	// navigateTo(routeConstants)
-});
 </script>
 
 <style scoped></style>
