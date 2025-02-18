@@ -1,2 +1,2 @@
-export * from "./account-type.props";
+export * from "./account-type-card.props";
 export * from "./logo.props"

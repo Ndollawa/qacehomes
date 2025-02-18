@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { AccountTypeCardProps } from "@/app/props/account-type.props";
+import type { AccountTypeCardProps } from "@/app/props/account-type-card.props";
 
 const props = defineProps<AccountTypeCardProps>();
 </script>
