@@ -12,7 +12,7 @@
 				<button
 					v-for="item in onboardingConst.accountTypes"
 					:key="item.title"
-					class="relative"
+					:class="cn('relative')"
 					@click="handleSelectedAccount(item.accountType)"
 				>
 					<span
@@ -30,6 +30,7 @@
 					<AccountTypeCard
 						:role="item.accountType"
 						:src="item.img"
+                  :class="cn(selectedAccount === item.accountType && 'border-tertiary')"
 						:alt="item.title"
 						:description="item.description"
 						:title="item.title"
