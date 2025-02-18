@@ -4,21 +4,60 @@ import type {
 } from "../interfaces/constants/route-const.types";
 
 export const routeConstants = {
+	"#": {
+		path: "/#",
+		name: "none",
+	},
 	onboarding: {
 		path: "/auth",
-		name: "onboarding",
+		name: "Onboading",
 	},
-	login: {
-		path: "/auth/login",
-		name: "login",
+	signIn: {
+		path: "/auth/sign-in",
+		name: "Sign In",
 	},
-	register: {
-		path: "/auth/register/:accountType",
-		name: "register",
+	signUp: {
+		path: "/auth/sign-up/:accountType",
+		name: "Sign Up",
 	},
 	forgotPassword: {
 		path: "/auth/forgot-password",
-		name: "forgotPassword",
+		name: "Forgot Password",
+	},
+	resetPassword: {
+		path: "/auth/forgort-password/:id/reset",
+		name: "Reset Password",
+	},
+	home: {
+		path: "/",
+		name: "Home",
+	},
+	dashboard: {
+		path: "/dashboard",
+		name: "Dashboard",
+	},
+
+	error: {
+		path: "/error/:errorCode",
+		name: "Error",
+	},
+
+	settings: {
+		path: "/dashboard/settings",
+		name: "Settings",
+	},
+
+	support: {
+		path: "/dashboard/support",
+		name: "Support",
+	},
+	profile: {
+		path: "/dashboard/profile",
+		name: "Support",
+	},
+	profileEdit: {
+		path: "/dashboard/profile/edit",
+		name: "Support",
 	},
 } as const;
 

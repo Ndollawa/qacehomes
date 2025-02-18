@@ -1,4 +1,6 @@
-<template></template>
+<template>
+	<AuthCard/>
+</template>
 
 <script setup lang="ts">
 definePageMeta({

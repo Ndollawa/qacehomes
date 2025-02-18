@@ -17,5 +17,7 @@ export type RouteParams = {
 		(typeof routeConstants)[K]["path"]
 	> extends never
 		? {} // No params -> empty object
-		: Partial<Record<ExtractParams<(typeof routeConstants)[K]["path"]>, string>>;
+		: Partial<
+				Record<ExtractParams<(typeof routeConstants)[K]["path"]>, string>
+			>;
 };
