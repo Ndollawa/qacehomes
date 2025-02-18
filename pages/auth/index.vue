@@ -3,8 +3,14 @@
 </template>
 
 <script setup lang="ts">
-import appRoutes, { generatePath } from "@/app/routes";
-console.log(generatePath(appRoutes["signIn"]));
+import { onMounted } from "vue";
+import appRoutes, { generatePath } from "@/app/routes/index";
+
+
+onMounted(() => {
+	console.log(generatePath(appRoutes["signIn"]));
+})
+
 definePageMeta({
 	layout: "auth",
 });
