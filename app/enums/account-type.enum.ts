@@ -1,4 +1,4 @@
-export enum UserType {
+export enum AccountType {
 	PropertyManager = "property-manager",
 	Landlord = "landlord",
 }

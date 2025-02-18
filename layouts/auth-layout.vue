@@ -1,6 +1,6 @@
 <template>
 	<div class="relative flex flex-col min-h-screen bg-primary">
-		<Navbar />
+		<AuthNavbar />
 	
       <div class="relative z-10 mt-10 md:mt-20">
          <slot />
@@ -14,6 +14,5 @@
 </template>
 
 <script setup lang="ts">
-import Navbar from "@/components/auth/Navbar.vue";
 import BuildingLine from "@/assets/images/building-line.png";
 </script>

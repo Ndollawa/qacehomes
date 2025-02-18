@@ -15,6 +15,14 @@ export default defineNuxtConfig({
       'pinia-plugin-persistedstate/nuxt',
    ],
 
+   /** Enable Auto Import For All Component */
+   components: [
+      {
+         path: "~/components",
+         pathPrefix: false,
+      }
+   ],
+
 	/** Shadcn Required Configs */
 	shadcn: {
 		prefix: "",

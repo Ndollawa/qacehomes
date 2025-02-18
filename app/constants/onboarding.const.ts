@@ -1,17 +1,17 @@
 import PropertyManagerImg from "@/assets/svgs/property-manager.svg";
 import LandlordImg from "@/assets/svgs/landlord.svg";
-import { UserType } from "../enums";
+import { AccountType } from "../enums";
 
 const accountTypes = [
 	{
 		img: PropertyManagerImg,
-		accountType: UserType.PropertyManager,
+		accountType: AccountType.PropertyManager,
 		title: "Property Manager",
 		description: "Handle multiple properties for different owners.",
 	},
 	{
 		img: LandlordImg,
-		accountType: UserType.Landlord,
+		accountType: AccountType.Landlord,
 		title: "Landlord",
 		description: "Manage your own property with ease.",
 	},

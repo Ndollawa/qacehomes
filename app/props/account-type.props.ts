@@ -1,9 +1,9 @@
-import type { UserType } from "../enums";
+import type { AccountType } from "../enums";
 
 export interface AccountTypeCardProps {
 	src: string;
-   role: UserType;
+	role: AccountType;
 	alt?: string;
 	title: string;
 	description: string;
-};
+}
