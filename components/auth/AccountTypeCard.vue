@@ -23,8 +23,8 @@
 </template>
 
 <script lang="ts" setup>
-import type { AccountTypeCardProps } from "@/app/props/account-type-card.props";
-import { cn } from "@/app/utils/cn";
+import type { AccountTypeCardProps } from "@/app/props";
+import { cn } from "@/app/utils";
 
 const props = defineProps<AccountTypeCardProps>();
 </script>

@@ -1,25 +1,34 @@
 import { AccountType } from "@/app/enums";
-import { registerSchema } from "@/app/props/schema";
+import { registerFormSchema } from "@/app/props/schema";
 import { handleThrowError } from "@/app/utils";
+import { useForm } from "vee-validate";
 
 export const useRegister = () => {
 	useHead({
-		title: "Rtegister",
+		title: "Register",
 	});
 
-	const { accountType } = useRoute().params;
+	const route = useRoute();
+	const accountType = computed(() => route.params.accountType as AccountType);
 
 	// If the account type mis-match the enums then error
 	onMounted(() => {
 		if (
-			accountType !== AccountType.Landlord &&
-			accountType !== AccountType.PropertyManager
+			![AccountType.Landlord, AccountType.PropertyManager].includes(
+				accountType.value,
+			)
 		) {
 			handleThrowError("ERR_404");
 		}
 	});
 
-	console.log(accountType);
+   // TODO: Resole the error causing navigation failure below
+	const form = useForm({
+		validationSchema:
+			accountType.value === AccountType.PropertyManager
+				? registerFormSchema.projectManagerSchema
+				: registerFormSchema.landlordSchema,
+	});
 
-	return {};
+	return { form, accountType };
 };
