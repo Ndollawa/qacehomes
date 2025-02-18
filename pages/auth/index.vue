@@ -1,14 +1,14 @@
 <template>
 	<div class="container flex justify-center">
 		<Card class="w-full max-w-xl py-4 md:px-8">
-			<CardHeader class="max-md:text-center">
+			<CardHeader class="select-none max-md:text-center">
 				<CardTitle> Personalise your experience </CardTitle>
 				<CardDescription class="mt-0.5 text-accent-foreground">
 					Choose the type of account you want to create.
 				</CardDescription>
 			</CardHeader>
 
-			<CardContent class="grid gap-6 400:grid-cols-2">
+			<CardContent class="grid gap-6 400:gap-4 400:grid-cols-2 500:gap-6">
 				<button
 					v-for="item in onboardingConst.accountTypes"
 					:key="item.title"
