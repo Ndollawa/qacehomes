@@ -1,21 +1,25 @@
-import type { AuthState } from "../interfaces/store/auth-store.types";
+import type { AuthStateT, UserT } from "../interfaces/store/auth-store.types";
 
 export const useAuthStore = defineStore("auth", {
-	state: (): AuthState => ({
+	state: (): AuthStateT => ({
 		user: null,
-		token: "",
+		token: {
+			access: "",
+			refresh: "",
+		},
+		isAuthenticated: false,
 	}),
 
 	actions: {
-		setUser(userData: any) {
+		setUser(userData: UserT, tokens: AuthStateT["token"]) {
 			this.user = userData;
-		},
-		setToken(token: string) {
-			this.token = token;
+			this.token = tokens;
+			this.isAuthenticated = true;
 		},
 		logout() {
 			this.user = null;
-			this.token = "";
+			this.token = null;
+			this.isAuthenticated = false;
 		},
 	},
 
