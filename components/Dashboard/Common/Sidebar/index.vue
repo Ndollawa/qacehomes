@@ -1,8 +1,8 @@
 <template>
 	<Sidebar collapsible="icon" class="bg-primary text-white">
-		<DashboardSidebarHeader/>
-		<DashboardSidebarMenu />
-		<DashboardSidebarFooter />
+		<DashboardCommonSidebarHeader/>
+		<DashboardCommonSidebarMenu />
+		<DashboardCommonSidebarFooter />
 		<SidebarRail />
 	</Sidebar>
 </template>

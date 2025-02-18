@@ -9,10 +9,10 @@
 </div>
 </template>
 
-<script lang="ts">
-definePageMeta({
-    layout: "dashboard",
-});
+<script setup lang="ts">
+
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

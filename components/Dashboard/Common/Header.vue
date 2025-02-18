@@ -5,7 +5,7 @@
 				<div class="flex items-center gap-2 px-4 w-full">
 					<SidebarTrigger class="-ml-1" />
 					<Separator orientation="vertical" class="mr-2 h-4" />
-					<DashboardNavbar/>
+					<DashboardCommonNavbar/>
 				</div>
 			</header>
 </template>
