@@ -21,6 +21,9 @@ module.exports = {
          fontSize: {
             md: "16px"
          },
+         screens: {
+            400: "400px"
+         },
 			colors: {
 				border: "hsl(var(--border))",
 				input: "hsl(var(--input))",

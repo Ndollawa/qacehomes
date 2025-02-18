@@ -1,5 +1,5 @@
 <template>
-	<div class="relative flex flex-col min-h-screen bg-primary">
+	<div class="relative flex flex-col min-h-screen pb-16 bg-primary">
 		<AuthNavbar />
 	
       <div class="relative z-10 mt-10 md:mt-20">

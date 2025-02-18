@@ -8,19 +8,23 @@
 				</CardDescription>
 			</CardHeader>
 
-			<CardContent class="grid grid-cols-2 gap-6">
-				<!-- ✅ Ensure `v-for` properly applies reactivity -->
+			<CardContent class="grid gap-6 400:grid-cols-2">
 				<button
 					v-for="item in onboardingConst.accountTypes"
-					:key="item.accountType"
+					:key="item.title"
 					class="relative"
-					@click="setSelectedAccount(item.accountType)"
+					@click="handleSelectedAccount(item.accountType)"
 				>
-					<!-- ✅ Correct class binding for selected state -->
 					<span
-						:class="cn('absolute transition-all rounded-full top-6 left-6 size-5 border bg-background', {
-                     'border-[6px] border-tertiary': selectedAccount === item.accountType 
-                  })"
+						:class="
+							cn(
+								'absolute transition-all rounded-full top-6 left-6 size-5 border bg-background',
+								{
+									'border-[6px] border-tertiary':
+										selectedAccount === item.accountType,
+								},
+							)
+						"
 					/>
 
 					<AccountTypeCard
@@ -35,10 +39,11 @@
 			</CardContent>
 
 			<CardFooter class="justify-center mt-6">
-				<Button 
-               class="px-16 max-md:w-full h-fit" 
-               :disabled="!selectedAccount"
-            >
+				<Button
+					class="px-16 max-md:w-full h-fit"
+					:disabled="!selectedAccount"
+					@click="handleGetStarted"
+				>
 					Get Started
 				</Button>
 			</CardFooter>
@@ -54,5 +59,10 @@ definePageMeta({
 	layout: "auth-layout",
 });
 
-const { onboardingConst, selectedAccount, setSelectedAccount } = useOnboarding();
+const {
+	onboardingConst,
+	selectedAccount,
+	handleSelectedAccount,
+	handleGetStarted,
+} = useOnboarding();
 </script>
