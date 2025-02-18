@@ -56,7 +56,7 @@ import { cn } from "@/app/utils/cn";
 import { useOnboarding } from "@/composables/pages/use-onboarding";
 
 definePageMeta({
-	layout: "auth-layout",
+	layout: "auth",
 });
 
 const {

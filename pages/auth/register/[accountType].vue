@@ -6,7 +6,7 @@
 import { useRegister } from '@/composables/pages/use-register';
 
 definePageMeta({
-   layout: "auth-layout"
+   layout: "auth"
 })
 
 const {} = useRegister()

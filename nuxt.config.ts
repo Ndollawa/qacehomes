@@ -41,6 +41,6 @@ export default defineNuxtConfig({
    },
 
    routeRules: {
-      "/**": {appMiddleware: 'auth.mid'}
+      "/**": {appMiddleware: 'auth'}
    }
 });

@@ -15,4 +15,5 @@
 
 <script setup lang="ts">
 import BuildingLine from "@/assets/svgs/building-line.svg";
+
 </script>
