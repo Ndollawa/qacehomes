@@ -11,7 +11,16 @@ export default defineNuxtConfig({
       "@nuxtjs/tailwindcss", 
       "@nuxtjs/color-mode", 
       "shadcn-nuxt",
-      '@pinia/nuxt'
+      '@pinia/nuxt',
+      'pinia-plugin-persistedstate/nuxt',
+   ],
+
+   /** Enable Auto Import For All Component */
+   components: [
+      {
+         path: "~/components",
+         pathPrefix: false,
+      }
    ],
 
 	/** Shadcn Required Configs */
@@ -28,6 +37,6 @@ export default defineNuxtConfig({
 
    /** State Management */
    pinia: {
-      storesDirs: ["app/store"]
+      storesDirs: ["app/store"],
    },
 });

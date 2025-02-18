@@ -24,8 +24,8 @@ export const routeConstants = {
 
 /**
  * Generate page routes dynamically with full autocomplete for routeName and routeParams.
- * @param routeName {RouteName} - The name of the route (autocomplete available).
- * @param routeParams {RouteParams[RouteName]} - Route parameters (autocomplete available).
+ * @param routeName {RouteName} - The name of the route.
+ * @param routeParams {RouteParams[RouteName]} - The route parameters.
  *
  * @returns string - The constructed route.
  */
