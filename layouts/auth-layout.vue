@@ -8,11 +8,11 @@
 
 		<img
 			:src="BuildingLine"
-			class="absolute bottom-0 left-0 object-center w-full max-h-[450px]"
+			class="absolute bottom-0 left-0 object-center object-cover w-full max-h-[600px]"
 		/>
 	</div>
 </template>
 
 <script setup lang="ts">
-import BuildingLine from "@/assets/images/building-line.png";
+import BuildingLine from "@/assets/svgs/building-line.svg";
 </script>

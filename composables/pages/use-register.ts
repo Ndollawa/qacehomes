@@ -18,6 +18,7 @@ export const useRegister = () => {
 			handleThrowError("ERR_404");
 		}
 	});
+   
 	console.log(accountType);
 
 	return {};

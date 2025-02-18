@@ -23,9 +23,22 @@ import type { ErrorCodesT } from "../interfaces/constants/error-codes.types";
 export const handleThrowError = (errorCode: ErrorCodesT) => {
 	const error = errorCodes[errorCode];
 
-	throw createError({
+	if (!error) {
+		throw createError({
+			statusCode: 500,
+			statusMessage: "Unknown Error",
+			fatal: true,
+		});
+	}
+
+	const formattedError = createError({
 		statusCode: error.statusCode,
 		statusMessage: error.message,
 		fatal: true,
 	});
+
+	// Attach the description directly to the error object
+	(formattedError as any).description = error.description;
+
+	throw formattedError;
 };

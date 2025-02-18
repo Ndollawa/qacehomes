@@ -1,29 +1,44 @@
 <template>
-	<main
-		class="h-screen w-full flex flex-col justify-center items-center bg-qacehomes-blue"
+	<section class="relative flex flex-col items-center justify-center min-h-screen">
+		<img 
+         :src="NotFoundErrorIcon" 
+         :alt="String(props.error.statusCode)" 
+      />
+
+      <h3 class="">
+         {{ props.error.message }}
+      </h3>
+
+      <p>
+         {{ props.error.description }}
+      </p>
+	</section>
+
+	<!-- <main
+		class="flex flex-col items-center justify-center w-full h-screen bg-qacehomes-blue"
 	>
-		<div class="relative flex flex-col justify-center items-center">
+		<div class="relative flex flex-col items-center justify-center">
 			<h1
-				class="text-9xl font-extrabold dark:text-dark text-white tracking-widest text-center"
+			g	class="font-extrabold tracking-widest text-center text-white text-9xl dark:text-dark"
 			>
 				{{ error.statusCode }}
 			</h1>
 			<div
-				class="dark:bg-white dark:text-dark bg-black text-white absolute text-center font-bold h-6 w-fit t-10 px-4 text-sm rounded rotate-12"
+				class="absolute h-6 px-4 text-sm font-bold text-center text-white bg-black rounded dark:bg-white dark:text-dark w-fit t-10 rotate-12"
 			>
 				{{ error.message }}
-			</div>
+			</div>g
 		</div>
 		<p
-			class="dark:text-dark text-white text-xl md:text-base sm:text-sm xs:text-xs px-2 text-center mt-5"
+			class="px-2 mt-5 text-xl text-center text-white dark:text-dark md:text-base sm:text-sm xs:text-xs"
 		>
 			{{ error.message }}
 		</p>
-		<div class="mt-5 grid place-items-center">
+		<div class="grid mt-5 place-items-center">
 			<button
 				type="button"
 				@click="handleClearError"
-				class="relative dark:text-white outline-none bottom-0 rounded-3xl inline-block dark:bg-qacehomes-blue-primary bg-white text-sm font-medium text-primary-light group focus:outline-none"
+				class="relative bottom-0 inline-block text-sm font-medium bg-white outline-none dark:text-white rounded-3xl dark:bg-qacehomes-blue-primary text-primary-light group focus:outline-none"
 			>
 				<span
 					class="absolute inset-0 transition-transform translate-x-0.5 translate-y-0.5 group-hover:translate-y-0 group-hover:translate-x-0"
@@ -34,11 +49,16 @@
 				</span>
 			</button>
 		</div>
-	</main>
+	</main> -->
 </template>
 
 <script setup lang="ts">
-defineProps(["error"]);
+import NotFoundErrorIcon from "@/assets/svgs/not-found-error.svg";
+import type { ErrorProps } from "./app/props/error.props";
+
+const props = defineProps<ErrorProps>();
+
+console.log(props.error.description)
 
 const handleClearError = () => clearError({ redirect: "/" });
 </script>
