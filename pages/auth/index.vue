@@ -59,6 +59,10 @@ definePageMeta({
 	layout: "auth",
 });
 
+useHead({
+	title: "Onboarding",
+});
+
 const {
 	onboardingConst,
 	selectedAccount,

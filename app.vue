@@ -6,8 +6,11 @@
 
 <script setup lang="ts">
 import LogoIconBlue from "@/assets/svgs/logo-icon-blue.svg";
+import { AppConfig } from "./app/config/app.config";
+
 useHead({
-	titleTemplate: (title) => (title ? `QaceHomes | ${title}` : "QaceHomes"),
+	titleTemplate: (title) =>
+		title ? `${AppConfig.companyName} | ${title}` : "QaceHomes",
 	link: [
 		{
 			rel: "icon",
