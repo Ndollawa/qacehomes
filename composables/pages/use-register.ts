@@ -1,3 +1,7 @@
 export const useRegister = () => {
-	return {};
+	useHead({
+      title: "Register"
+   })
+   
+   return {};
 };
