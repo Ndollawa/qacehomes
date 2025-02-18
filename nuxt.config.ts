@@ -39,4 +39,8 @@ export default defineNuxtConfig({
    pinia: {
       storesDirs: ["app/store"],
    },
+
+   routeRules: {
+      "/**": {appMiddleware: ['auth-global']},
+   }
 });

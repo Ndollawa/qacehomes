@@ -3,7 +3,7 @@ import { onboardingConst } from "@/app/constants/onboarding.const";
 import type { AccountType } from "@/app/enums";
 
 export const useOnboarding = () => {
-	const selectedAccount = shallowRef<AccountType | null>(null);
+	const selectedAccount = ref<AccountType | null>(null);
 
 	const handleSelectedAccount = (accountType: AccountType) => {
 		selectedAccount.value = accountType;

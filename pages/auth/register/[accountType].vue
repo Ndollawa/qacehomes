@@ -2,6 +2,12 @@
 	<div>Home</div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useRegister } from '@/composables/pages/use-register';
 
-<style scoped></style>
+definePageMeta({
+   layout: "auth"
+})
+
+const {} = useRegister()
+</script>

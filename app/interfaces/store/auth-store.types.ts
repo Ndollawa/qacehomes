@@ -1,6 +1,10 @@
 export type UserT = {};
 
-export type AuthState = {
+export type AuthStateT = {
 	user: UserT | null;
-	token: string;
+	token: {
+		access?: string;
+		refresh?: string;
+	} | null;
+	isAuthenticated: boolean;
 };

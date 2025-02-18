@@ -4,6 +4,7 @@ import type {
 } from "../interfaces/constants/route-const.types";
 
 export const routeConstants = {
+	// Auth
 	onboarding: {
 		path: "/auth",
 		name: "onboarding",
@@ -19,6 +20,12 @@ export const routeConstants = {
 	forgotPassword: {
 		path: "/auth/forgot-password",
 		name: "forgotPassword",
+	},
+
+	// Dashboard
+	dashboard: {
+		path: "/dashboard",
+		name: "Dashboard",
 	},
 } as const;
 
