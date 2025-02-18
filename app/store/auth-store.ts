@@ -1,23 +1,21 @@
-import type { AuthState } from "../interfaces/store/auth-store.types";
+import type { AuthState, UserT } from "../interfaces/store/auth-store.types";
+
+import { defineStore } from "pinia";
 
 export const useAuthStore = defineStore("auth", {
 	state: (): AuthState => ({
 		user: null,
-		token: "",
+		token: null,
 	}),
-
 	actions: {
-		setUser(userData: any) {
-			this.user = userData;
-		},
-		setToken(token: string) {
-			this.token = token;
+		setCredentials(user: UserT, accessToken: string) {
+			this.user = user;
+			this.token = accessToken;
 		},
 		logout() {
 			this.user = null;
 			this.token = "";
 		},
 	},
-
-	persist: true,
+	persist: true, //not recommended
 });

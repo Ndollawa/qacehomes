@@ -1,4 +1,3 @@
-
 export const errorCodes = {
 	ERR_400: {
 		message: "Bad Request",

@@ -7,7 +7,7 @@ const useAxiosFunc = () => {
 	const loading = ref(false);
 	const controller = ref<AbortController | null>(null);
 
-	const axiosFetch = async (configObj:AxiosConfigObject ) => {
+	const axiosFetch = async (configObj: AxiosConfigObject) => {
 		const { axiosInstance, method, url, requestConfig = {} } = configObj;
 
 		try {

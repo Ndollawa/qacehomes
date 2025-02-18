@@ -1,11 +1,10 @@
 <template>
-	<AuthCard/>
-	{{ }}
+	<AuthCard />
 </template>
 
 <script setup lang="ts">
-import appRoutes, { generatePath } from '@/app/routes';
-alert( generatePath(appRoutes["signIn"]))
+import appRoutes, { generatePath } from "@/app/routes";
+console.log(generatePath(appRoutes["signIn"]));
 definePageMeta({
 	layout: "auth",
 });

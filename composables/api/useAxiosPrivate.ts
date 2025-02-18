@@ -4,27 +4,27 @@ import { axiosPrivate } from "@/app/api";
 // import { useAuthStore } from "";
 
 const useAxiosPrivate = () => {
-	const refresh = ()=>'' //useRefreshToken();
+	const refresh = () => ""; //useRefreshToken();
 	const store = useAuthStore();
-	const token = store// token logic;
+	const token = store; // token logic;
 
 	let requestInterceptor: any;
 	let responseInterceptor: any;
 
 	onMounted(() => {
 		requestInterceptor = axiosPrivate.interceptors.request.use(
-			(config:any) => {
+			(config: any) => {
 				if (!config?.headers["Authorization"]) {
 					config.headers["Authorization"] = `Bearer ${token}`;
 				}
 				return config;
 			},
-			(error:any) => Promise.reject(error),
+			(error: any) => Promise.reject(error),
 		);
 
 		responseInterceptor = axiosPrivate.interceptors.response.use(
-			(response:any) => response,
-			async (error:any) => {
+			(response: any) => response,
+			async (error: any) => {
 				const prevRequest = error?.config;
 				if (error?.response?.status === 403 && !prevRequest?.sent) {
 					prevRequest.sent = true;
