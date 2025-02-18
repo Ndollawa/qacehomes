@@ -1,4 +1,4 @@
-// No types here so that types can exist for habdleThrowError
+
 export const errorCodes = {
 	ERR_400: {
 		message: "Bad Request",
@@ -42,4 +42,4 @@ export const errorCodes = {
 			"The server is not ready to handle the request. Please try again later.",
 	},
 	// Add more error codes as needed
-};
+} as const;

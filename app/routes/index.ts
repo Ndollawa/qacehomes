@@ -1,4 +1,4 @@
-import { routeConstants as appRoutes } from "./../constants/route-const";
+import { routeConstants as appRoutes } from "../constants/route-const";
 interface AppRoute {
 	name: string;
 	path: string;
