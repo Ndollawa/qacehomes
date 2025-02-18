@@ -18,5 +18,5 @@ const accountTypes = [
 ];
 
 export const onboardingConst = {
-   accountTypes
+	accountTypes,
 };

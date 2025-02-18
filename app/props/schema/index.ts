@@ -1,4 +1,4 @@
 /**
  * Form schema for form validation using zod
  */
-export * from "./register.schema"
+export * from "./register.schema";

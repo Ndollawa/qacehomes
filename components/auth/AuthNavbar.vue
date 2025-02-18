@@ -3,11 +3,11 @@
 		<nav
 			class="container flex items-center justify-center px-6 pt-10 pb-6 md:py-0 md:h-20 md:justify-between"
 		>
-			<Logo 
-            :src="isMobile ? 'full-logo-white' : 'full-logo-blue'" 
-            alt="Qace Homes Logo" 
-            class="max-md:h-8"
-         />
+			<Logo
+				:src="isMobile ? 'full-logo-white' : 'full-logo-blue'"
+				alt="Qace Homes Logo"
+				class="max-md:h-8"
+			/>
 
 			<div class="flex items-center gap-4 max-md:hidden">
 				<p>Already have an account?</p>

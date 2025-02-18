@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import LogoIconBlue  from "@/assets/svgs/logo-icon-blue.svg"
+import LogoIconBlue from "@/assets/svgs/logo-icon-blue.svg";
 useHead({
 	titleTemplate: (title) => (title ? `QaceHomes | ${title}` : "QaceHomes"),
 	link: [
@@ -16,7 +16,7 @@ useHead({
 		},
 		{
 			rel: "apple-touch-icon",
-			href: LogoIconBlue, 
+			href: LogoIconBlue,
 			sizes: "180x180",
 		},
 	],

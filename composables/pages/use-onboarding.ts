@@ -17,5 +17,10 @@ export const useOnboarding = () => {
 		);
 	};
 
-	return { onboardingConst, selectedAccount, handleSelectedAccount, handleGetStarted };
+	return {
+		onboardingConst,
+		selectedAccount,
+		handleSelectedAccount,
+		handleGetStarted,
+	};
 };

@@ -27,15 +27,15 @@ export const buttonVariants = cva(
 				md: "h-9 px-4 py-2",
 				icon: "h-9 w-9",
 			},
-         disabled: {
-            true: "pointer-events-none bg-muted text-muted-foreground",
-            false: ""
-         }
+			disabled: {
+				true: "pointer-events-none bg-muted text-muted-foreground",
+				false: "",
+			},
 		},
 		defaultVariants: {
 			variant: "default",
 			size: "default",
-         disabled: false
+			disabled: false,
 		},
 	},
 );

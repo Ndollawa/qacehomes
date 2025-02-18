@@ -15,14 +15,14 @@ module.exports = {
 			},
 		},
 		extend: {
-         spacing: {
-            container: {
-               DEFAULT: "1.2rem",
-               sm: "1.5rem",
-               md: "2rem",
-               lg: "2.5rem"
-            }
-         },
+			spacing: {
+				container: {
+					DEFAULT: "1.2rem",
+					sm: "1.5rem",
+					md: "2rem",
+					lg: "2.5rem",
+				},
+			},
 			fontFamily: {
 				primary: "var(--font-primary)",
 			},
