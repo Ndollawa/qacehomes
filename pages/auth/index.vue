@@ -1,13 +1,52 @@
 <template>
-   <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. A sit iusto consequatur eligendi, incidunt officia voluptate nisi ex fugit cum. Deserunt distinctio amet nobis, adipisci, corporis reiciendis aliquam dicta, odit aspernatur possimus in. Delectus possimus repellat, soluta molestiae id numquam sunt! Temporibus doloremque, dignissimos voluptas impedit at laudantium, accusamus saepe a nobis non, ab officia perspiciatis dolore rem iste esse eligendi itaque illum explicabo reiciendis aperiam! Laudantium possimus corrupti veritatis beatae quibusdam mollitia nam nulla, unde consectetur neque quasi corporis est quae eaque eum fugit voluptate a architecto repellat repellendus earum? Quod est voluptate consequatur quo nesciunt fugit cum maxime.
-   </p>
+	<div class="container flex justify-center">
+		<Card class="w-full max-w-xl py-4 md:px-8">
+			<CardHeader class="max-md:text-center">
+				<CardTitle> Personalise your experience </CardTitle>
+				<CardDescription class="mt-0.5 text-accent-foreground">
+					Choose the type of account you want to create.
+				</CardDescription>
+			</CardHeader>
+
+			<CardContent class="grid grid-cols-2 gap-6">
+				<RadioGroup
+					v-for="item in onboardingConst.accountTypes"
+					:key="item.title"
+					class="relative"
+				>
+					<RadioGroupItem
+						:id="item.title"
+						:value="item.title.toLowerCase()"
+						class="absolute bg-white top-4 left-4"
+					/>
+
+					<Label :for="item.title">
+						<AccountTypeCard
+							:src="item.img"
+							:alt="item.title"
+							:description="item.description"
+							:title="item.title"
+						/>
+					</Label>
+				</RadioGroup>
+			</CardContent>
+
+			<CardFooter class="justify-center mt-6">
+				<Button class="px-16 max-md:w-full h-fit"> Get Started </Button>
+			</CardFooter>
+		</Card>
+	</div>
 </template>
 
 <script setup lang="ts">
+import { onboardingConst } from "@/app/constants/onboarding.const";
+import PersonalExperienceCard from "@/components/auth/AccountTypeCard.vue";
+
 definePageMeta({
 	layout: "auth-layout",
 });
+
+// const 
 </script>
 
 <style scoped></style>

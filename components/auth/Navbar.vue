@@ -1,7 +1,7 @@
 <template>
-	<header class="max-md:bg-primary bg-background md:top-0 md:sticky">
+	<header class="z-30 max-md:bg-primary bg-background md:top-0 md:sticky">
 		<nav
-			class="container flex items-center justify-center px-6 pt-10 pb-6 md:py-0 md:h-16 md:justify-between"
+			class="container flex items-center justify-center px-6 pt-10 pb-6 md:py-0 md:h-20 md:justify-between"
 		>
 			<Logo 
             :src="isMobile ? 'full-logo-white' : 'full-logo-blue'" 
@@ -11,7 +11,7 @@
 
 			<div class="flex items-center gap-4 max-md:hidden">
 				<p>Already have an account?</p>
-				<Button variant="secondary" class="px-8"> Sign in </Button>
+				<Button variant="secondary"> Sign in </Button>
 			</div>
 		</nav>
 	</header>

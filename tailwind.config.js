@@ -18,6 +18,9 @@ module.exports = {
 			fontFamily: {
 				primary: "var(--font-primary)",
 			},
+         fontSize: {
+            md: "16px"
+         },
 			colors: {
 				border: "hsl(var(--border))",
 				input: "hsl(var(--input))",
