@@ -4,7 +4,7 @@ import { handleThrowError } from "@/app/utils";
 
 export const useRegister = () => {
 	useHead({
-		title: "Register",
+		title: "Rtegister",
 	});
 
 	const { accountType } = useRoute().params;
@@ -18,7 +18,7 @@ export const useRegister = () => {
 			handleThrowError("ERR_404");
 		}
 	});
-   
+
 	console.log(accountType);
 
 	return {};

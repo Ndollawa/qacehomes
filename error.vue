@@ -5,32 +5,32 @@
 		>
 			<img
 				:src="NotFoundErrorIcon"
-				:alt="String(props.error.statusCode)"
+				:alt="String(error.statusCode)"
 				class="mx-auto size-44"
 			/>
 
 			<div class="mt-4">
 				<h3 class="text-4xl font-medium leading-tight">
-					{{props.error.statusCode}} {{ props.error.message }}
+					{{ error.statusCode }} {{ error.message }}
 				</h3>
 
 				<p class="leading-loose text-balance text-muted-foreground">
-					{{ props.error.description }}
+					{{ error.description }}
 				</p>
 			</div>
 
-			<Button 
-            class="mx-auto mt-6 w-fit [&>svg]:size-4"
-            @click="handleClearError"
-         > 
-            <ChevronLeft /> Go back 
-         </Button>
+			<Button
+				class="mx-auto mt-6 w-fit [&>svg]:size-4"
+				@click="handleClearError"
+			>
+				<ChevronLeft /> Go back
+			</Button>
 		</div>
 
-      <img 
-         :src="BuildingLineIcon"
-         class="absolute bottom-0 left-0 w-full object-cover object-center max-h-[500px]"
-      />
+		<img
+			:src="BuildingLineIcon"
+			class="absolute bottom-0 left-0 w-full object-cover object-center max-h-[500px]"
+		/>
 	</section>
 </template>
 
@@ -39,10 +39,22 @@ import NotFoundErrorIcon from "@/assets/svgs/not-found-error.svg";
 import BuildingLineIcon from "@/assets/svgs/building-line.svg";
 import type { ErrorProps } from "./app/props/error.props";
 import { ChevronLeft } from "lucide-vue-next";
+import { errorCodes } from "./app/constants";
 
 const props = defineProps<ErrorProps>();
 
-console.log(props.error.description);
+const error = ref(props.error);
+
+// Override error with a custom error message if found
+onMounted(() => {
+	const foundError = Object.values(errorCodes).find(
+		(err) => err.statusCode === error.value.statusCode,
+	);
+
+	if (foundError) {
+		error.value = foundError;
+	}
+});
 
 const handleClearError = () => clearError({ redirect: "/" });
 </script>
