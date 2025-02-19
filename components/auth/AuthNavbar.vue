@@ -1,5 +1,5 @@
 <template>
-	<header class="z-30 max-md:bg-primary bg-background md:top-0 md:sticky">
+	<header class="z-30 shadow-md max-md:bg-primary bg-background md:top-0 md:sticky">
 		<nav
 			class="container flex items-center justify-center px-6 pt-10 pb-6 md:py-0 md:h-20 md:justify-between"
 		>

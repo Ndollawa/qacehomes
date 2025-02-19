@@ -7,8 +7,12 @@ import { SelectIcon, SelectTrigger, useForwardProps } from "radix-vue";
 import { computed } from "vue";
 
 const props = defineProps<
-	SelectTriggerProps & { class?: HTMLAttributes["class"] }
+	SelectTriggerProps & { class?: HTMLAttributes["class"], isError?: boolean | string | any[]; }
 >();
+
+const error = computed(() =>
+	Array.isArray(props.isError) ? props.isError.length > 0 : props.isError,
+);
 
 const delegatedProps = computed(() => {
 	const { class: _, ...delegated } = props;
@@ -25,6 +29,7 @@ const forwardedProps = useForwardProps(delegatedProps);
 		:class="
 			cn(
 				'flex h-12 w-full items-center justify-between rounded-xxs border border-input bg-background px-3 py-2 text-sm ring-offset-background data-[placeholder]:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 placeholder:text-muted-foreground/50 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:truncate text-start',
+            error && 'border-2 border-destructive',
 				props.class,
 			)
 		"

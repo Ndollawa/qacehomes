@@ -4,25 +4,21 @@
 			<CardHeader>
 				<CardTitle> Create account </CardTitle>
 				<CardDescription>
-					Fill in your details to create a Property company PMS profile
+					Fill in your details to create a
+					{{
+						isPropertyManager ? "Property company PMS" : "landlord"
+					}}
+					profile
 				</CardDescription>
 			</CardHeader>
 
 			<CardContent class="space-y-6">
 				<!-- Property Manager Only -->
 				<PropertyManagerForm v-if="isPropertyManager" />
-				<div
-					v-if="isPropertyManager"
-					class="mt-3 space-y-2 text-xs font-medium tracking-wide text-primary"
-				>
-					<small> CONTACT PERSON DETAILS </small>
-
-					<Separator />
-				</div>
 
 				<!-- Shared -->
 				<FormField
-					v-slot="{ componentField }"
+					v-slot="{ componentField, errors }"
 					:name="isPropertyManager ? 'full_name' : 'first_name'"
 				>
 					<FormItem>
@@ -31,6 +27,7 @@
 						</FormLabel>
 						<FormControl>
 							<Input
+								:is-error="errors"
 								:placeholder="`Enter ${isPropertyManager ? 'full' : 'first'} name`"
 								v-bind="componentField"
 							/>
@@ -42,13 +39,14 @@
 				<!-- Landlord Only  -->
 				<FormField
 					v-if="isLandlord"
-					v-slot="{ componentField }"
+					v-slot="{ componentField, errors }"
 					name="last_name"
 				>
 					<FormItem>
 						<FormLabel> Last name </FormLabel>
 						<FormControl>
 							<Input
+								:is-error="errors"
 								placeholder="Enter last name"
 								v-bind="componentField"
 							/>
@@ -58,11 +56,12 @@
 				</FormField>
 
 				<!-- Shared -->
-				<FormField v-slot="{ componentField }" name="email">
+				<FormField v-slot="{ componentField, errors }" name="email">
 					<FormItem>
 						<FormLabel> Email </FormLabel>
 						<FormControl>
 							<Input
+								:is-error="errors"
 								placeholder="example@domain.com"
 								v-bind="componentField"
 							/>
@@ -71,18 +70,7 @@
 					</FormItem>
 				</FormField>
 
-				<FormField v-slot="{ componentField }" name="password">
-					<FormItem>
-						<FormLabel> Password </FormLabel>
-						<FormControl>
-							<Input
-								placeholder="Enter password"
-								v-bind="componentField"
-							/>
-						</FormControl>
-						<FormMessage />
-					</FormItem>
-				</FormField>
+				<RegisterPasswordField />
 			</CardContent>
 		</Card>
 	</form>
@@ -95,6 +83,5 @@ definePageMeta({
 	layout: "auth",
 });
 
-const { onSubmit, isPropertyManager, isLandlord } =
-	useRegister();
+const { onSubmit, isPropertyManager, isLandlord } = useRegister();
 </script>

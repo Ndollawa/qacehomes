@@ -77,7 +77,7 @@ const projectManagerSchema = baseUserSchema.extend({
 
 /** Landlord Schema */
 const landlordSchema = baseUserSchema.extend({
-	firstname: z
+	first_name: z
 		.string({
 			required_error: "First name is required",
 		})
