@@ -2,13 +2,13 @@
 <SidebarProvider>
     <DashboardSidebar />
     <SidebarInset>
-        <DashboardHeader />
+        <!-- <DashboardHeader /> -->
         <slot />
     </SidebarInset>
 </SidebarProvider>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import {
     SidebarInset,
     SidebarProvider,

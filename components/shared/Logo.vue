@@ -2,8 +2,8 @@
   <div v-bind="$attrs" class="flex items-center">
     <!-- Logo SVG -->
     <svg
-      :width="width"
-      :height="height"
+      :width="width ?? 27"
+      :height="height ?? 27"
       viewBox="0 0 28 29"
       fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
