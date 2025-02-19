@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from "vue";
-import { cn } from "@/app/utils/cn";
+import { cn } from "@/app/utils/cn.utils";
 import { useSidebar } from "./utils";
 
 const props = defineProps<{

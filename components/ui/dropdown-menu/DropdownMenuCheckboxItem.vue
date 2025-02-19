@@ -4,7 +4,7 @@ import type {
 	DropdownMenuCheckboxItemProps,
 } from "radix-vue";
 import type { HTMLAttributes } from "vue";
-import { cn } from "@/app/utils/cn";
+import { cn } from "@/app/utils/cn.utils";
 import { Check } from "lucide-vue-next";
 import {
 	DropdownMenuCheckboxItem,

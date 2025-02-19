@@ -1,13 +1,14 @@
 import type {
 	RouteName,
 	RouteParams,
-} from "../interfaces/constants/route-const.types";
+} from "../interfaces/constants/route-constant.types";
 
 export const routeConstants = {
 	"#": {
 		path: "/#",
 		name: "none",
 	},
+	// Auth
 	onboarding: {
 		path: "/auth",
 		name: "Onboading",
@@ -28,20 +29,21 @@ export const routeConstants = {
 		path: "/auth/forgort-password/:id/reset",
 		name: "Reset Password",
 	},
+	// Others
 	home: {
 		path: "/",
 		name: "Home",
 	},
-	dashboard: {
-		path: "/dashboard",
-		name: "Dashboard",
-	},
-
 	error: {
 		path: "/error/:errorCode",
 		name: "Error",
 	},
 
+	// Dashboard
+	dashboard: {
+		path: "/dashboard",
+		name: "Dashboard",
+	},
 	settings: {
 		path: "/dashboard/settings",
 		name: "Settings",
@@ -59,12 +61,13 @@ export const routeConstants = {
 		path: "/dashboard/profile/edit",
 		name: "Support",
 	},
+
 } as const;
 
 /**
  * Generate page routes dynamically with full autocomplete for routeName and routeParams.
- * @param routeName {RouteName} - The name of the route (autocomplete available).
- * @param routeParams {RouteParams[RouteName]} - Route parameters (autocomplete available).
+ * @param routeName {RouteName} - The name of the route.
+ * @param routeParams {RouteParams[RouteName]} - The route parameters.
  *
  * @returns string - The constructed route.
  */

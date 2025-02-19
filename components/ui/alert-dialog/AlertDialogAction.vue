@@ -2,7 +2,7 @@
 import type { AlertDialogActionProps } from "radix-vue";
 import type { HTMLAttributes } from "vue";
 import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/app/utils/cn";
+import { cn } from "@/app/utils/cn.utils";
 import { AlertDialogAction } from "radix-vue";
 import { computed } from "vue";
 

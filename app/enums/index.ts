@@ -1,4 +1,1 @@
-export enum ThemeMode {
-	Light = "light",
-	Dark = "dark",
-}
+export * from "./account-type.enum"

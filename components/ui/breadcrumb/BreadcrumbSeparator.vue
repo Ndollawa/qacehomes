@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { HTMLAttributes } from "vue";
-import { cn } from "@/app/utils/cn";
+import { cn } from "@/app/utils/cn.utils";
 import { ChevronRight } from "lucide-vue-next";
 
 const props = defineProps<{

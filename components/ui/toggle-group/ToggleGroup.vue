@@ -3,7 +3,7 @@ import type { toggleVariants } from "@/components/ui/toggle";
 import type { VariantProps } from "class-variance-authority";
 import type { ToggleGroupRootEmits, ToggleGroupRootProps } from "radix-vue";
 import type { HTMLAttributes } from "vue";
-import { cn } from "@/app/utils/cn";
+import { cn } from "@/app/utils/cn.utils";
 import { ToggleGroupRoot, useForwardPropsEmits } from "radix-vue";
 import { computed, provide } from "vue";
 

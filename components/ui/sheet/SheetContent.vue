@@ -2,7 +2,7 @@
 import type { DialogContentEmits, DialogContentProps } from "radix-vue";
 import type { HTMLAttributes } from "vue";
 import type { SheetVariants } from ".";
-import { cn } from "@/app/utils/cn";
+import { cn } from "@/app/utils/cn.utils";
 import { X } from "lucide-vue-next";
 import {
 	DialogClose,

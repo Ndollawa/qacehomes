@@ -2,7 +2,7 @@
 import type { PaginationNextProps } from "radix-vue";
 import type { HTMLAttributes } from "vue";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/app/utils/cn";
+import { cn } from "@/app/utils/cn.utils";
 import { ChevronRight } from "lucide-vue-next";
 import { PaginationNext } from "radix-vue";
 import { computed } from "vue";

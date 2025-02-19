@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { RangeCalendarHeaderProps } from "radix-vue";
 import type { HTMLAttributes } from "vue";
-import { cn } from "@/app/utils/cn";
+import { cn } from "@/app/utils/cn.utils";
 import { RangeCalendarHeader, useForwardProps } from "radix-vue";
 import { computed } from "vue";
 

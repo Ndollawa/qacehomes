@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { CalendarHeadingProps } from "radix-vue";
 import type { HTMLAttributes } from "vue";
-import { cn } from "@/app/utils/cn";
+import { cn } from "@/app/utils/cn.utils";
 import { CalendarHeading, useForwardProps } from "radix-vue";
 import { computed } from "vue";
 

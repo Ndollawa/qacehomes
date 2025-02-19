@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { TabsTriggerProps } from "radix-vue";
 import type { HTMLAttributes } from "vue";
-import { cn } from "@/app/utils/cn";
+import { cn } from "@/app/utils/cn.utils";
 import { TabsTrigger, useForwardProps } from "radix-vue";
 import { computed } from "vue";
 

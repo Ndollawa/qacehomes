@@ -4,7 +4,7 @@ import type {
 	SplitterResizeHandleProps,
 } from "radix-vue";
 import type { HTMLAttributes } from "vue";
-import { cn } from "@/app/utils/cn";
+import { cn } from "@/app/utils/cn.utils";
 import { GripVertical } from "lucide-vue-next";
 import { SplitterResizeHandle, useForwardPropsEmits } from "radix-vue";
 import { computed } from "vue";

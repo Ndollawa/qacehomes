@@ -2,7 +2,7 @@
 import type { ToggleEmits, ToggleProps } from "radix-vue";
 import type { HTMLAttributes } from "vue";
 import type { ToggleVariants } from ".";
-import { cn } from "@/app/utils/cn";
+import { cn } from "@/app/utils/cn.utils";
 import { Toggle, useForwardPropsEmits } from "radix-vue";
 import { computed } from "vue";
 import { toggleVariants } from ".";

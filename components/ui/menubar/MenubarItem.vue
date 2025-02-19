@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { MenubarItemEmits, MenubarItemProps } from "radix-vue";
 import type { HTMLAttributes } from "vue";
-import { cn } from "@/app/utils/cn";
+import { cn } from "@/app/utils/cn.utils";
 import { MenubarItem, useForwardPropsEmits } from "radix-vue";
 import { computed } from "vue";
 

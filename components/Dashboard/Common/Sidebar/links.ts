@@ -1,153 +1,72 @@
 import {
-	AudioWaveform,
-	BadgeCheck,
-	Bell,
-	BookOpen,
-	Bot,
-	ChevronRight,
-	ChevronsUpDown,
-	Command,
-	CreditCard,
-	Folder,
-	Forward,
-	Frame,
-	GalleryVerticalEnd,
-	LogOut,
-	Map,
-	MoreHorizontal,
-	PieChart,
-	Plus,
-	Settings2,
-	Sparkles,
-	SquareTerminal,
-	Trash2,
-} from "lucide-vue-next";
+	JaFillHome,
+	BxSolidBriefcase,
+	IcSolidReports,
+	HiSolidUsers,
+	AnFilledBank,
+	BxSolidHelpCircle,
+	AnTwotoneSetting
+} from "@kalimahapps/vue-icons";
 // This is sample data.
+
 export const links = {
 	user: {
-		name: "shadcn",
-		email: "m@example.com",
+		name: "Ndollawa",
+		email: "ndollawa@yahoo.com",
 		avatar: "/avatars/shadcn.jpg",
+		initials: "NO",
 	},
-	teams: [
-		{
-			name: "Acme Inc",
-			logo: GalleryVerticalEnd,
-			plan: "Enterprise",
-		},
-		{
-			name: "Acme Corp.",
-			logo: AudioWaveform,
-			plan: "Startup",
-		},
-		{
-			name: "Evil Corp.",
-			logo: Command,
-			plan: "Free",
-		},
-	],
+	dashboard:{},
 	navMain: [
 		{
-			title: "Playground",
-			url: "#",
-			icon: SquareTerminal,
-			isActive: true,
-			items: [
+			groupLabel: "Features",
+			menus: [
 				{
-					title: "History",
+					title: "Properties",
 					url: "#",
+					icon: JaFillHome,
+					isActive: true,
 				},
 				{
-					title: "Starred",
+					title: "Portfolio",
 					url: "#",
+					icon: BxSolidBriefcase,
 				},
 				{
-					title: "Settings",
+					title: "User",
 					url: "#",
+					icon: HiSolidUsers,
 				},
+				{
+					title: "Report",
+					url: "#",
+					icon: IcSolidReports,
+				},
+				
 			],
 		},
 		{
-			title: "Models",
-			url: "#",
-			icon: Bot,
-			items: [
-				{
-					title: "Genesis",
-					url: "#",
-				},
-				{
-					title: "Explorer",
-					url: "#",
-				},
-				{
-					title: "Quantum",
-					url: "#",
-				},
-			],
-		},
-		{
-			title: "Documentation",
-			url: "#",
-			icon: BookOpen,
-			items: [
-				{
-					title: "Introduction",
-					url: "#",
-				},
-				{
-					title: "Get Started",
-					url: "#",
-				},
-				{
-					title: "Tutorials",
-					url: "#",
-				},
-				{
-					title: "Changelog",
-					url: "#",
-				},
-			],
-		},
-		{
-			title: "Settings",
-			url: "#",
-			icon: Settings2,
-			items: [
-				{
-					title: "General",
-					url: "#",
-				},
-				{
-					title: "Team",
-					url: "#",
-				},
+			groupLabel: "General",
+			menus: [
 				{
 					title: "Billing",
 					url: "#",
+					icon: AnFilledBank,
+					isActive: true,
 				},
 				{
-					title: "Limits",
+					title: "Help",
 					url: "#",
+					icon: BxSolidHelpCircle,
 				},
+				
+				{
+					title: "Settings",
+					url: "#",
+					icon: AnTwotoneSetting,
+				},
+			
 			],
-		},
-	],
-	projects: [
-		{
-			name: "Design Engineering",
-			url: "#",
-			icon: Frame,
-		},
-		{
-			name: "Sales & Marketing",
-			url: "#",
-			icon: PieChart,
-		},
-		{
-			name: "Travel",
-			url: "#",
-			icon: Map,
 		},
 	],
 };

@@ -4,7 +4,7 @@ import type {
 	DropdownMenuContentProps,
 } from "radix-vue";
 import type { HTMLAttributes } from "vue";
-import { cn } from "@/app/utils/cn";
+import { cn } from "@/app/utils/cn.utils";
 import {
 	DropdownMenuContent,
 	DropdownMenuPortal,

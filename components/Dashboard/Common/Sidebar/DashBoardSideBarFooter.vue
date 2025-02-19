@@ -13,7 +13,7 @@
 									:src="links.user.avatar"
 									:alt="links.user.name"
 								/>
-								<AvatarFallback class="rounded-lg"> CN </AvatarFallback>
+								<AvatarFallback class="rounded-lg"> {{links.user.initials}} </AvatarFallback>
 							</Avatar>
 							<div class="grid flex-1 text-left text-sm leading-tight">
 								<span class="truncate font-semibold">{{
@@ -42,7 +42,7 @@
 										:alt="links.user.name"
 									/>
 									<AvatarFallback class="rounded-lg">
-										CN
+										{{ links.user.initials }}
 									</AvatarFallback>
 								</Avatar>
 								<div
@@ -93,6 +93,15 @@
 
 <script setup lang="ts">
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  BadgeCheck,
+  Bell,
+  Bot,
+  ChevronsUpDown,
+  CreditCard,
+  LogOut,
+  Sparkles,
+} from 'lucide-vue-next'
 import {
 	DropdownMenu,
 	DropdownMenuContent,

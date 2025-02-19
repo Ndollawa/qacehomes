@@ -4,13 +4,14 @@
 	"type": "module",
 	"scripts": {
 		"build": "nuxt build",
-		"dev": "npm run format && nuxt dev",
+		"dev": "nuxt dev",
 		"generate": "nuxt generate",
 		"preview": "nuxt preview",
 		"postinstall": "nuxt prepare",
 		"format": "prettier --write ."
 	},
 	"dependencies": {
+		"@kalimahapps/vue-icons": "^1.7.1",
 		"@nuxtjs/color-mode": "^3.5.2",
 		"@pinia/nuxt": "^0.10.1",
 		"@vee-validate/zod": "^4.15.0",

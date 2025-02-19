@@ -1,4 +1,4 @@
-export * from "./auth.contants";
+export * from "./auth.constant";
 export * from "./error-codes.constant";
 export * from "./route-const";
-export * from "./endpoint.constants";
+export * from "./endpoint.constant";

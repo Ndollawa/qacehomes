@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { SelectScrollDownButtonProps } from "radix-vue";
 import type { HTMLAttributes } from "vue";
-import { cn } from "@/app/utils/cn";
+import { cn } from "@/app/utils/cn.utils";
 import { ChevronDown } from "lucide-vue-next";
 import { SelectScrollDownButton, useForwardProps } from "radix-vue";
 import { computed } from "vue";

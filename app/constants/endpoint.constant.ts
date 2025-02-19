@@ -1,7 +1,7 @@
 import type {
 	EndpointParams,
 	EndpointT,
-} from "../interfaces/constants/endpoint-const.types";
+} from "../interfaces/constants/endpoint-constant.types";
 
 export const ENDPOINT = {
 	GET_PROPERTY: "/property/all",

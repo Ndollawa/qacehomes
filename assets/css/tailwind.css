@@ -1,3 +1,5 @@
+@import url("https://fonts.cdnfonts.com/css/inter");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,7 +10,7 @@
 		--foreground: 222.2 84% 4.9%;
 
 		--muted: 204 15% 94%; /* #ECEFF1 */
-		--muted-foreground: 210 12% 72%; /* #AEB7BF */
+		--muted-foreground: 212 7% 34%; /* #51575E */
 
 		--popover: 0 0% 100%;
 		--popover-foreground: 222.2 84% 4.9%;
@@ -27,8 +29,11 @@
 		--secondary-foreground: 213 11% 19%; /* #2C3137 */
 		--secondary-hover: 204 15% 94%; /* #ECEFF1 */
 
+		--tertiary: 203 92% 50%; /* #0A9BF4 */
+
 		--accent: 200 18% 97%; /* #F5F7F8 */
 		--accent-foreground: 213 11% 19%; /* #2C3137 */
+		--accent-background: 203 100% 94%; /* #E2F4FF */
 
 		--destructive: 351 88% 59%; /* #F23C57 */
 		--destructive-hover: 351 67% 49%; /* #CF2942 */
@@ -39,7 +44,9 @@
 		--destructive-secondary-foreground: 351 88% 59%; /* #F23C57 */
 
 		--ring: 222.2 84% 4.9%;
-		--radius: 1rem;
+		--radius: 1.5rem;
+
+		--font-primary: "Inter", sans-serif;
 
 		/* SIDEBAR */
 		--sidebar-background: var(--background);
@@ -50,16 +57,77 @@
 		--sidebar-accent-foreground: var(--accent-foreground);
 		--sidebar-border: var(--accent-foreground);
 		--sidebar-ring: var(--ring);
- }
-	}	
 
+		--sidebar-width: 20rem;
+		--sidebar-width-mobile:20rem;
+	}
+}
 
 @layer base {
-
 	* {
 		@apply border-border;
 	}
 	body {
-		@apply bg-background text-foreground;
+		@apply bg-background text-foreground font-primary min-w-[320px];
 	}
+	span {
+		@apply inline-block;
+	}
+
+	    /* Customize scrollbar width */
+  .scrollbar-thin {
+    scrollbar-width: thin; /* For Firefox */
+  }
+
+  .scrollbar-none {
+    scrollbar-width: none; /* For Firefox */
+  }
+
+  /* WebKit browsers (Chrome, Safari, Edge) */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 1px; /* Vertical scrollbar width */
+    height: 1px; /* Horizontal scrollbar height */
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: rgba(100, 100, 100, 0.5); /* Scrollbar thumb color */
+    border-radius: 5px; /* Scrollbar thumb roundness */
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none; /* Hide scrollbar completely */
+  }
+}
+
+.container {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 1.2rem; /* Default */
+	padding-right: 1.2rem; /* Default */
+}
+
+@media (min-width: 640px) {
+	/* sm */
+	.container {
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
+	}
+}
+
+@media (min-width: 768px) {
+	/* md */
+	.container {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+}
+
+@media (min-width: 1024px) {
+	/* lg */
+	.container {
+		padding-left: 2.5rem;
+		padding-right: 2.5rem;
+	}
+
 }

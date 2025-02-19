@@ -1,3 +1,4 @@
+
 export const errorCodes = {
 	ERR_400: {
 		message: "Bad Request",
@@ -20,7 +21,7 @@ export const errorCodes = {
 	ERR_404: {
 		message: "Not Found",
 		statusCode: 404,
-		description: "The requested resource could not be found on the server.",
+		description: "The requested resource could not be found on.",
 	},
 	ERR_500: {
 		message: "Internal Server Error",

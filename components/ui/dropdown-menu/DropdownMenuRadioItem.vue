@@ -4,7 +4,7 @@ import type {
 	DropdownMenuRadioItemProps,
 } from "radix-vue";
 import type { HTMLAttributes } from "vue";
-import { cn } from "@/app/utils/cn";
+import { cn } from "@/app/utils/cn.utils";
 import { Circle } from "lucide-vue-next";
 import {
 	DropdownMenuItemIndicator,

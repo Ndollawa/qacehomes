@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { WithClassAsProps } from "./interface";
-import { cn } from "@/app/utils/cn";
+import { cn } from "@/app/utils/cn.utils";
 import { useCarousel } from "./useCarousel";
 
 defineOptions({

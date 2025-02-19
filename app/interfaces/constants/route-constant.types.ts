@@ -1,4 +1,4 @@
-import type { routeConstants } from "@/app/constants";
+import type { routeConstants } from "@/app/constants/route-const";
 
 // Extract valid route names from `routeConstants`
 export type RouteName = keyof typeof routeConstants;

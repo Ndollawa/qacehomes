@@ -2,7 +2,7 @@
 import type { CalendarPrevProps } from "radix-vue";
 import type { HTMLAttributes } from "vue";
 import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/app/utils/cn";
+import { cn } from "@/app/utils/cn.utils";
 import { ChevronLeft } from "lucide-vue-next";
 import { CalendarPrev, useForwardProps } from "radix-vue";
 import { computed } from "vue";

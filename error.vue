@@ -1,44 +1,61 @@
 <template>
-	<main
-		class="h-screen w-full flex flex-col justify-center items-center bg-primary"
-	>
-		<div class="relative flex flex-col justify-center items-center">
-			<h1
-				class="text-9xl font-extrabold dark:text-dark text-white tracking-widest text-center"
-			>
-				{{ error.statusCode }}
-			</h1>
-			<div
-				class="dark:bg-white dark:text-dark bg-black text-white absolute text-center font-bold h-fit w-fit t-10 p-3 text-sm rounded rotate-12"
-			>
-				{{ error.message }}
-			</div>
-		</div>
-		<p
-			class="dark:text-dark text-white text-xl md:text-base sm:text-sm xs:text-xs px-2 text-center mt-5"
+	
+	<section class="relative grid min-h-screen">
+		<div
+			class="z-10 flex flex-col max-w-2xl mx-auto mt-20 text-center md:mt-36"
 		>
-			{{ error.description }}
-		</p>
-		<div class="mt-5 grid place-items-center">
-			<button
-				type="button"
-				@click="handleClearError"
-				class="relative dark:text-white outline-none bottom-0 rounded-3xl inline-block dark:bg-primary-primary bg-white text-sm font-medium text-primary-light group focus:outline-none"
-			>
-				<span
-					class="absolute inset-0 transition-transform translate-x-0.5 translate-y-0.5 group-hover:translate-y-0 group-hover:translate-x-0"
-				></span>
+			<img
+				:src="NotFoundErrorIcon"
+				:alt="String(error.statusCode)"
+				class="mx-auto size-44"
+			/>
 
-				<span class="relative block px-8 py-3 text-primary">
-					Go to Home
-				</span>
-			</button>
+			<div class="mt-4">
+				<h3 class="text-4xl font-medium leading-tight">
+					{{ error.statusCode }} {{ error.message }}
+				</h3>
+
+				<p class="leading-loose text-balance text-muted-foreground">
+					{{ error.description }}
+				</p>
+			</div>
+
+			<Button
+				class="mx-auto mt-6 w-fit [&>svg]:size-4"
+				@click="handleClearError"
+			>
+				<ChevronLeft /> Go back
+			</Button>
 		</div>
-	</main>
+
+		<img
+			:src="BuildingLineIcon"
+			class="absolute bottom-0 left-0 w-full object-cover object-center max-h-[500px]"
+		/>
+	</section>
 </template>
 
 <script setup lang="ts">
-defineProps(["error"]);
+import NotFoundErrorIcon from "@/assets/svgs/not-found-error.svg";
+import BuildingLineIcon from "@/assets/svgs/building-line.svg";
+import type { ErrorProps } from "./app/props/error.props";
+import { ChevronLeft } from "lucide-vue-next";
+import { errorCodes } from "./app/constants";
+
+const props = defineProps<ErrorProps>();
+
+const error = ref(props.error);
+
+// Override error with a custom error message if found
+onMounted(() => {
+	const foundError = Object.values(errorCodes).find(
+		(err) => err.statusCode === error.value.statusCode,
+	);
+
+	if (foundError) {
+		error.value = foundError;
+	}
+});
 
 const handleClearError = () => clearError({ redirect: "/" });
 </script>
