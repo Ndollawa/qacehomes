@@ -1,51 +1,93 @@
 import * as z from "zod";
-import { toTypedSchema } from "@vee-validate/zod";
 import { AccountType } from "../enums";
 
 /** Reusable Password Schema */
+const passwordErrorMsg =
+	"Try a stronger password with the guidelines provided.";
 const passwordSchema = z
-	.string()
-	.min(8, { message: "Password must be at least 8 characters long" })
-	.regex(/[a-z]/, {
-		message: "Password must contain at least one lowercase letter",
+	.string({
+		required_error: "Password is required",
 	})
-	.regex(/[A-Z]/, {
-		message: "Password must contain at least one uppercase letter",
-	})
-	.regex(/[0-9]/, { message: "Password must contain at least one number" })
-	.regex(/[^a-zA-Z0-9]/, {
-		message: "Password must contain at least one special character",
+	.superRefine((password, ctx) => {
+		if (password.length < 8) {
+			ctx.addIssue({
+				code: z.ZodIssueCode.custom,
+				message: passwordErrorMsg,
+			});
+		}
+		if (!/[a-z]/.test(password)) {
+			ctx.addIssue({
+				code: z.ZodIssueCode.custom,
+				message: passwordErrorMsg,
+			});
+		}
+		if (!/[A-Z]/.test(password)) {
+			ctx.addIssue({
+				code: z.ZodIssueCode.custom,
+				message: passwordErrorMsg,
+			});
+		}
+		if (!/[0-9]/.test(password)) {
+			ctx.addIssue({
+				code: z.ZodIssueCode.custom,
+				message: passwordErrorMsg,
+			});
+		}
+		if (!/[^a-zA-Z0-9]/.test(password)) {
+			ctx.addIssue({
+				code: z.ZodIssueCode.custom,
+				message: passwordErrorMsg,
+			});
+		}
 	});
 
 /** Base User Schema (Shared Fields) */
 const baseUserSchema = z.object({
-	email: z.string().email({ message: "Please enter a valid email" }),
+	email: z
+		.string({
+			required_error: "Email is required",
+		})
+		.email({ message: "Please enter a valid email" }),
 	password: passwordSchema,
 });
 
 /** Project Manager Schema */
-const projectManagerSchema = toTypedSchema(
-	baseUserSchema.extend({
-		fullname: z.string().min(3, { message: "Please enter your full name" }),
-		company_name: z.string().min(3, { message: "Please enter company name" }),
-		company_email: z
-			.string()
-			.email({ message: "Please enter a valid company email" }),
-		company_size: z
-			.string()
-			.min(4, { message: "Please select company size" }),
-	}),
-);
+const projectManagerSchema = baseUserSchema.extend({
+	full_name: z
+		.string({
+			required_error: "Full name is required",
+		})
+		.min(3, { message: "Please enter your full name" }),
+	company_name: z
+		.string({
+			required_error: "Company name is required",
+		})
+		.min(3, { message: "Please enter company name" }),
+	company_email: z
+		.string({
+			required_error: "Company email is required",
+		})
+		.email({ message: "Please enter a valid company email" }),
+	company_size: z
+		.string({
+			required_error: "Company size is required",
+		})
+		.min(1, { message: "Please select company size" }),
+});
 
 /** Landlord Schema */
-const landlordSchema = toTypedSchema(
-	baseUserSchema.extend({
-		first_name: z
-			.string()
-			.min(3, { message: "Please enter your first name" }),
-		last_name: z.string().min(3, { message: "Please enter your last name" }),
-	}),
-);
+const landlordSchema = baseUserSchema.extend({
+	firstname: z
+		.string({
+			required_error: "First name is required",
+		})
+		.min(3, { message: "Please enter your first name" }),
+	last_name: z
+		.string({
+			required_error: "Last name is required",
+		})
+		.min(3, { message: "Please enter your last name" }),
+});
 
 export const registerFormSchema = {
 	projectManagerSchema,
@@ -55,7 +97,7 @@ export const registerFormSchema = {
 	 * Get the validation schema dynamically based on the account type.
 	 *
 	 * @param {AccountType} accountType - The account type (either "PropertyManager" or "Landlord").
-	 * @returns {ReturnType<typeof toTypedSchema>} - The corresponding Zod validation schema.
+	 * @returns {ZodSchema} - The corresponding Zod validation schema.
 	 * @throws {Error} If the account type is invalid.
 	 */
 	getValidationSchema: (accountType: AccountType) => {

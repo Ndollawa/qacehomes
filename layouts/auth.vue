@@ -2,7 +2,7 @@
 	<div class="relative flex flex-col min-h-screen pb-16 bg-primary">
 		<AuthNavbar />
 
-		<div class="container relative z-10 flex justify-center md:mt-20">
+		<div class="container relative z-[1] flex justify-center md:mt-20">
 			<slot />
 		</div>
 

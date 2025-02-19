@@ -15,26 +15,18 @@ export const useRegister = () => {
 
 	// If account type is invalid, throw error
 	onMounted(() => {
-		if (
-			![AccountType.Landlord, AccountType.PropertyManager].includes(
-				accountType,
-			)
-		) {
+		if (!Object.values(AccountType).includes(accountType)) {
 			handleThrowError("ERR_404");
 		}
 	});
 
-	// Get validation schema dynamically
-	const validationSchema = getValidationSchema(accountType);
+	// Get Zod schema dynamically
+	const zodSchema = getValidationSchema(accountType);
 
-	// Init form
-	const form = useForm({ validationSchema });
-
-	// Conditionally show fields
-	const isPropertyManager = computed(
-		() => accountType === AccountType.PropertyManager,
-	);
-	const isLandlord = computed(() => accountType === AccountType.Landlord);
+	// Init form with `toTypedSchema`
+	const form = useForm({
+		validationSchema: toTypedSchema(zodSchema), 
+	});
 
 	const onSubmit = form.handleSubmit((values) => {
 		console.log("Form Submitted: ", values);
@@ -44,8 +36,7 @@ export const useRegister = () => {
 		form,
 		onSubmit,
 		accountType,
-		validationSchema,
-		isPropertyManager,
-		isLandlord,
+		isPropertyManager: computed(() => accountType === AccountType.PropertyManager),
+		isLandlord: computed(() => accountType === AccountType.Landlord),
 	};
 };

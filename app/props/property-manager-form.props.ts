@@ -1,5 +1,5 @@
 import type { useForm } from "vee-validate";
 
 export type PropertyManagerFormProps = {
-	form: ReturnType<typeof useForm>;
+	form?: ReturnType<typeof useForm>;
 };
