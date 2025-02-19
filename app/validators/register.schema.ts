@@ -90,9 +90,6 @@ const landlordSchema = baseUserSchema.extend({
 });
 
 export const registerFormSchema = {
-	projectManagerSchema,
-	landlordSchema,
-
 	/**
 	 * Get the validation schema dynamically based on the account type.
 	 *
