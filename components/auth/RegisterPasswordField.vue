@@ -77,10 +77,4 @@ const strengthScore = computed(() => {
 
 	return score;
 });
-
-// Debugging Password Changes
-watch(password, (newPassword) => {
-	console.log("Password Changed: ", newPassword);
-	console.log("Strength Score: ", strengthScore.value);
-});
 </script>
