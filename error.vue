@@ -62,5 +62,5 @@ onMounted(() => {
 
 const handleClearError = () => clearError({ redirect: "/" });
 
-console.error(error)
+console.error("Error: ", error)
 </script>

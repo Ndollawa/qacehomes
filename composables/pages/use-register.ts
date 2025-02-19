@@ -1,5 +1,5 @@
 import { AccountType } from "@/app/enums";
-import { registerFormSchema } from "@/app/props/schema";
+import { registerFormSchema } from "@/app/validators";
 import { handleThrowError } from "@/app/utils";
 import { useForm } from "vee-validate";
 
