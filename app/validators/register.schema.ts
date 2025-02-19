@@ -1,5 +1,6 @@
 import * as z from "zod";
 import { toTypedSchema } from "@vee-validate/zod";
+import { AccountType } from "../enums";
 
 /** Reusable Password Schema */
 const passwordSchema = z
@@ -49,4 +50,22 @@ const landlordSchema = toTypedSchema(
 export const registerFormSchema = {
 	projectManagerSchema,
 	landlordSchema,
+
+	/**
+	 * Get the validation schema dynamically based on the account type.
+	 *
+	 * @param {AccountType} accountType - The account type (either "PropertyManager" or "Landlord").
+	 * @returns {ReturnType<typeof toTypedSchema>} - The corresponding Zod validation schema.
+	 * @throws {Error} If the account type is invalid.
+	 */
+	getValidationSchema: (accountType: AccountType) => {
+		switch (accountType) {
+			case AccountType.PropertyManager:
+				return projectManagerSchema;
+			case AccountType.Landlord:
+				return landlordSchema;
+			default:
+				throw new Error("Invalid account type");
+		}
+	},
 };

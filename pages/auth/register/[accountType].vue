@@ -1,14 +1,21 @@
 <template>
-	<Card class="w-full max-w-xl py-4 md:px-4">
-		<CardHeader>
-			<CardTitle> Create account </CardTitle>
-			<CardDescription>
-				Fill in your details to create a Property company PMS profile
-			</CardDescription>
+	<form @submit="onSubmit" class="w-full max-w-xl py-4">
+		<Card>
+			<CardHeader>
+				<CardTitle> Create account </CardTitle>
+				<CardDescription>
+					Fill in your details to create a Property company PMS profile
+				</CardDescription>
+			</CardHeader>
 
-			<CardContent> </CardContent>
-		</CardHeader>
-	</Card>
+			<CardContent class="gap-y-10">
+				<PropertyManagerForm 
+               v-if="isPropertyManager" 
+               :form="form"
+            />
+			</CardContent>
+		</Card>
+	</form>
 </template>
 
 <script setup lang="ts">
@@ -18,5 +25,12 @@ definePageMeta({
 	layout: "auth",
 });
 
-const {form, accountType } = useRegister();
+const {
+	form,
+	onSubmit,
+	accountType,
+	validationSchema,
+	isPropertyManager,
+	isLandlord,
+} = useRegister();
 </script>

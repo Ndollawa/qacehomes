@@ -6,5 +6,5 @@ export interface AccountTypeCardProps {
 	alt?: string;
 	title: string;
 	description: string;
-   class?: string;
+	class?: string;
 }

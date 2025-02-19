@@ -46,8 +46,8 @@ const props = defineProps<ErrorProps>();
 const error = ref(props.error);
 
 useHead({
-   title: `${error.value.message.split(":")[0]} - ${AppConfig.companyName}`,
-})
+	title: `${error.value.message.split(":")[0]} - ${AppConfig.companyName}`,
+});
 
 // Override error with a custom error message if found
 onMounted(() => {
@@ -62,5 +62,5 @@ onMounted(() => {
 
 const handleClearError = () => clearError({ redirect: "/" });
 
-console.error("Error: ", error)
+console.error("Error: ", error);
 </script>
