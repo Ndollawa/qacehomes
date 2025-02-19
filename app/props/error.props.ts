@@ -1,5 +1,5 @@
-   import type { ErrorCodeT } from "../interfaces/constants/error-codes.types";
+import type { ErrorCodeT } from "../interfaces/constants/error-codes.types";
 
-   export interface ErrorProps {
-      error: ErrorCodeT
-   }
+export interface ErrorProps {
+	error: ErrorCodeT;
+}

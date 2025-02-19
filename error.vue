@@ -40,10 +40,14 @@ import BuildingLineIcon from "@/assets/svgs/building-line.svg";
 import type { ErrorProps } from "./app/props/error.props";
 import { ChevronLeft } from "lucide-vue-next";
 import { errorCodes } from "./app/constants";
+import { AppConfig } from "./app/config/app.config";
 
 const props = defineProps<ErrorProps>();
-
 const error = ref(props.error);
+
+useHead({
+	title: `${error.value.message.split(":")[0]} - ${AppConfig.companyName}`,
+});
 
 // Override error with a custom error message if found
 onMounted(() => {
@@ -57,6 +61,6 @@ onMounted(() => {
 });
 
 const handleClearError = () => clearError({ redirect: "/" });
-</script>
 
-<style scoped></style>
+console.error("Error: ", error);
+</script>

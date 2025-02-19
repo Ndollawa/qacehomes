@@ -1,10 +1,10 @@
 <template>
 	<div class="relative flex flex-col min-h-screen pb-16 bg-primary">
 		<AuthNavbar />
-	
-      <div class="relative z-10 md:mt-20">
-         <slot />
-      </div>
+
+		<div class="container relative z-[1] flex justify-center md:mt-20">
+			<slot />
+		</div>
 
 		<img
 			:src="BuildingLine"
@@ -15,5 +15,4 @@
 
 <script setup lang="ts">
 import BuildingLine from "@/assets/svgs/building-line.svg";
-
 </script>

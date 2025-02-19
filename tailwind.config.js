@@ -15,14 +15,14 @@ module.exports = {
 			},
 		},
 		extend: {
-         spacing: {
-            container: {
-               DEFAULT: "1.2rem",
-               sm: "1.5rem",
-               md: "2rem",
-               lg: "2.5rem"
-            }
-         },
+			spacing: {
+				container: {
+					DEFAULT: "1.2rem",
+					sm: "1.5rem",
+					md: "2rem",
+					lg: "2.5rem",
+				},
+			},
 			fontFamily: {
 				primary: "var(--font-primary)",
 			},
@@ -83,6 +83,8 @@ module.exports = {
 				lg: "var(--radius)",
 				md: "calc(var(--radius) - 2px)",
 				sm: "calc(var(--radius) - 4px)",
+            xs: "calc(var(--radius) - 6px)",
+            xxs: "calc(var(--radius) - 12px)",
 			},
 			keyframes: {
 				"accordion-down": {

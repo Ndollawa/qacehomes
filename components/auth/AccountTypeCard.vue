@@ -1,5 +1,5 @@
 <template>
-	<Card class="h-full">
+	<Card :class="cn('h-full', props.class)">
 		<CardContent class="p-4 400:p-2 500:p-4 400:text-start">
 			<span class="rounded-[10px] bg-muted size-full overflow-hidden">
 				<img
@@ -23,7 +23,8 @@
 </template>
 
 <script lang="ts" setup>
-import type { AccountTypeCardProps } from "@/app/props/account-type-card.props";
+import type { AccountTypeCardProps } from "@/app/props";
+import { cn } from "@/app/utils";
 
 const props = defineProps<AccountTypeCardProps>();
 </script>
