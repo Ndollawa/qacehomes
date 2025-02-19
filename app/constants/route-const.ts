@@ -7,19 +7,29 @@ export const routeConstants = {
 	// Auth
 	onboarding: {
 		path: "/auth",
-		name: "onboarding",
+		name: "Onboarding",
 	},
 	login: {
 		path: "/auth/login",
-		name: "login",
+		name: "Login",
 	},
 	register: {
 		path: "/auth/register/:accountType",
-		name: "register",
+		name: "Register",
 	},
 	forgotPassword: {
 		path: "/auth/forgot-password",
-		name: "forgotPassword",
+		name: "Forgot password",
+	},
+
+	// Company Legals
+	termsOfService: {
+		path: "/terms-of-service",
+		name: "Terms of service",
+	},
+	privacyPolicy: {
+		path: "/privacy-policy",
+		name: "Privacy policy",
 	},
 
 	// Dashboard

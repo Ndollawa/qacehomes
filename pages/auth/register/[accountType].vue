@@ -1,13 +1,11 @@
 <template>
 	<form @submit="onSubmit" class="w-full max-w-xl">
-		<Card class="px-2 py-6">
+	   <Card class="px-2 py-6">
 			<CardHeader>
 				<CardTitle> Create account </CardTitle>
 				<CardDescription>
 					Fill in your details to create a
-					{{
-						isPropertyManager ? "Property company PMS" : "landlord"
-					}}
+					{{ isPropertyManager ? "Property company PMS" : "landlord" }}
 					profile
 				</CardDescription>
 			</CardHeader>
@@ -72,11 +70,31 @@
 
 				<RegisterPasswordField />
 			</CardContent>
+
+			<CardFooter class="grid">
+				<Button> Register </Button>
+
+				<div
+					class="max-w-sm mx-auto mt-8 text-sm text-center [&_a]:text-tertiary [&_a:hover]:underline"
+				>
+					<p>
+						By creating an account, you agree to Qacehome's
+						<NuxtLink :to="generateRoute('termsOfService')">
+							Terms of Service
+						</NuxtLink>
+						and
+						<NuxtLink :to="generateRoute('privacyPolicy')">
+							Privacy Policy </NuxtLink
+						>.
+					</p>
+				</div>
+			</CardFooter>
 		</Card>
 	</form>
 </template>
 
 <script setup lang="ts">
+import { generateRoute } from "@/app/constants";
 import { useRegister } from "@/composables/pages/useRegister";
 
 definePageMeta({
