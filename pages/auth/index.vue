@@ -54,7 +54,7 @@
 
 <script setup lang="ts">
 import { cn } from "@/app/utils";
-import { useOnboarding } from "@/composables/pages/use-onboarding";
+import { useOnboarding } from "@/composables/pages/useOnboarding";
 
 definePageMeta({
 	layout: "auth",

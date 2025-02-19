@@ -8,7 +8,7 @@
 				</CardDescription>
 			</CardHeader>
 
-			<CardContent class="gap-y-10">
+			<CardContent class="space-y-6">
 				<PropertyManagerForm 
                v-if="isPropertyManager" 
                :form="form"
@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { useRegister } from "@/composables/pages/use-register";
+import { useRegister } from "@/composables/pages/useRegister";
 
 definePageMeta({
 	layout: "auth",
