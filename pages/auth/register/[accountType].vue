@@ -95,6 +95,6 @@ definePageMeta({
 	layout: "auth",
 });
 
-const { form, onSubmit, accountType, isPropertyManager, isLandlord } =
+const { onSubmit, isPropertyManager, isLandlord } =
 	useRegister();
 </script>

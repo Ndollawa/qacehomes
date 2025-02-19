@@ -25,18 +25,20 @@ export const useRegister = () => {
 
 	// Init form with `toTypedSchema`
 	const form = useForm({
-		validationSchema: toTypedSchema(zodSchema), 
+		validationSchema: toTypedSchema(zodSchema),
 	});
 
+	console.log("Form", form);
+   
 	const onSubmit = form.handleSubmit((values) => {
 		console.log("Form Submitted: ", values);
 	});
 
 	return {
-		form,
 		onSubmit,
-		accountType,
-		isPropertyManager: computed(() => accountType === AccountType.PropertyManager),
+		isPropertyManager: computed(
+			() => accountType === AccountType.PropertyManager,
+		),
 		isLandlord: computed(() => accountType === AccountType.Landlord),
 	};
 };
