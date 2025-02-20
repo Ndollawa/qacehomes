@@ -6,11 +6,11 @@ import axios from "axios";
  * It returns a function to trigger the request and request states for handling loading, erros, and cancellation.
  *
  * @param {"post" | "put" | "patch" | "delete"} method - The HTTP method to be used for the request.
- * @returns {[Function, {data: any, isLoading: boolean, isError: boolean, error: any, cancel: Function}]}
+ * @returns {[Function, {data: any, headers: any, isLoading: boolean, isError: boolean, error: any, cancel: Function}]}
  *
  * @example
  * ```ts
- * const [createUser, {data, isLoading, isError, error, cancel}] = useMutation("post");
+ * const [createUser, {data, headers, isLoading, isError, error, cancel}] = useMutation("post");
  *
  * const formValues = {name: "Damife Zion"}
  * const onSubmit = async(values) => {
@@ -21,11 +21,14 @@ import axios from "axios";
  *    catch (err: any) {
  *       console.error("Error making request: ", err);
  *    }
- * }
+ * };
+ *
+ * console.log("Response Headers:", headers);
  * ```
  */
 export const useMutation = (method: "post" | "put" | "patch" | "delete") => {
 	const data = ref<any>(null);
+	const headers = ref<any>(null);
 	const isLoading = ref(false);
 	const isError = ref(false);
 	const error = ref<any>(null);
@@ -61,6 +64,7 @@ export const useMutation = (method: "post" | "put" | "patch" | "delete") => {
 			});
 
 			data.value = res.data;
+			headers.value = res.headers;
 			return res;
 		} catch (err: any) {
 			if (axios.isCancel(err)) return;
@@ -72,10 +76,13 @@ export const useMutation = (method: "post" | "put" | "patch" | "delete") => {
 		}
 	};
 
-   /**
+	/**
 	 * Cancels the ongoing request if it exists.
 	 */
 	const cancel = () => cancelToken?.cancel("Request canceled");
 
-	return [mutate, { data, isLoading, isError, error, cancel }] as const;
+	return [
+		mutate,
+		{ data, headers, isLoading, isError, error, cancel },
+	] as const;
 };
