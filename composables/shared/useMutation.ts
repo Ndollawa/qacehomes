@@ -1,37 +1,60 @@
-import type { AxiosRequestConfig, CancelTokenSource } from "axios";
+import type {
+	AxiosRequestConfig,
+	CancelTokenSource,
+	AxiosProgressEvent,
+} from "axios";
 import axios from "axios";
 
 /**
- * A composable function for handling mutation function requests (POST, PUT, PATCH, DELETE).
- * It returns a function to trigger the request and request states for handling loading, erros, and cancellation.
+ * A composable function for handling mutation requests (POST, PUT, PATCH, DELETE).
+ * Supports both normal JSON requests and FormData (file uploads).
+ * Provides reactive states for tracking loading, errors, cancellation, and upload progress.
  *
  * @param {"post" | "put" | "patch" | "delete"} method - The HTTP method to be used for the request.
- * @returns {[Function, {data: any, headers: any, isLoading: boolean, isError: boolean, error: any, cancel: Function}]}
+ * @param {boolean} [isFormData=false] - Whether the request data is FormData (for file uploads).
+ * @returns {[Function, { data: any, headers: any, isLoading: boolean, isError: boolean, error: any, progress: number, cancel: Function }]}
  *
- * @example
+ * @example **Normal JSON request**
  * ```ts
- * const [createUser, {data, headers, isLoading, isError, error, cancel}] = useMutation("post");
+ * const [createUser, { data, headers, isLoading, isError, error, cancel }] = useMutation("post");
  *
- * const formValues = {name: "Damife Zion"}
- * const onSubmit = async(values) => {
- *    try {
- *       const res = await createUser("/api/user", formValues);
- *       console.log("Success: ", res.data);
- *    }
- *    catch (err: any) {
- *       console.error("Error making request: ", err);
- *    }
+ * const onSubmit = async () => {
+ *   try {
+ *     const res = await createUser("/api/user", { name: "John Doe" });
+ *     console.log("Success:", res.data);
+ *   } catch (err) {
+ *     console.error("Error making request:", err);
+ *   }
  * };
+ * ```
  *
- * console.log("Response Headers:", headers);
+ * @example **File Upload**
+ * ```ts
+ * const [uploadFile, { data, headers, isLoading, isError, error, progress, cancel }] = useMutation("post", true);
+ *
+ * const onUpload = async (file) => {
+ *   const formData = new FormData();
+ *   formData.append("file", file);
+ *
+ *   try {
+ *     const res = await uploadFile("/api/upload", formData);
+ *     console.log("Upload Success:", res.data);
+ *   } catch (err) {
+ *     console.error("Error uploading file:", err);
+ *   }
+ * };
  * ```
  */
-export const useMutation = (method: "post" | "put" | "patch" | "delete") => {
+export const useMutation = (
+	method: "post" | "put" | "patch" | "delete",
+	isFormData: boolean = false,
+) => {
 	const data = ref<any>(null);
 	const headers = ref<any>(null);
 	const isLoading = ref(false);
 	const isError = ref(false);
 	const error = ref<any>(null);
+	const progress = ref(0); // Track upload progress
 	let cancelToken: CancelTokenSource | null = null;
 
 	/**
@@ -47,19 +70,35 @@ export const useMutation = (method: "post" | "put" | "patch" | "delete") => {
 		payload?: any,
 		config?: AxiosRequestConfig,
 	) => {
-		isLoading.value = false;
+		isLoading.value = true;
 		isError.value = false;
 		error.value = null;
+		progress.value = 0;
 
 		try {
 			cancelToken?.cancel("Request canceled by new mutation");
 			cancelToken = axios.CancelToken.source();
+
+			// Determine headers: JSON default, FormData if specified
+			const headersConfig = isFormData
+				? { "Content-Type": "multipart/form-data" }
+				: { "Content-Type": "application/json" };
 
 			const res = await axios({
 				method,
 				url,
 				data: payload,
 				cancelToken: cancelToken.token,
+				onUploadProgress: isFormData
+					? (event: AxiosProgressEvent) => {
+							if (event.total) {
+								progress.value = Math.round(
+									(event.loaded / event.total) * 100,
+								);
+							}
+						}
+					: undefined,
+				headers: { ...headersConfig, ...config?.headers },
 				...config,
 			});
 
@@ -83,6 +122,6 @@ export const useMutation = (method: "post" | "put" | "patch" | "delete") => {
 
 	return [
 		mutate,
-		{ data, headers, isLoading, isError, error, cancel },
+		{ data, headers, isLoading, isError, error, progress, cancel },
 	] as const;
 };
