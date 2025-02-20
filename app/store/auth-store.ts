@@ -3,7 +3,7 @@ import type { AuthStateT, UserT } from "../interfaces/store/auth-store.types";
 export const useAuthStore = defineStore("auth", {
 	state: (): AuthStateT => ({
 		user: null,
-		token: {
+		tokens: {
 			access: "",
 			refresh: "",
 		},
@@ -11,14 +11,20 @@ export const useAuthStore = defineStore("auth", {
 	}),
 
 	actions: {
-		setUser(userData: UserT, tokens: AuthStateT["token"]) {
+		setUser(userData: UserT, tokens: AuthStateT["tokens"]) {
 			this.user = userData;
-			this.token = tokens;
+			this.tokens = tokens;
 			this.isAuthenticated = true;
+		},
+		setTokens(tokens: AuthStateT["tokens"]) {
+			this.tokens = {
+				...this.tokens,
+				...tokens,
+			};
 		},
 		logout() {
 			this.user = null;
-			this.token = null;
+			this.tokens = null;
 			this.isAuthenticated = false;
 		},
 	},
