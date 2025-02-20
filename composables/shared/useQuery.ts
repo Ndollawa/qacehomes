@@ -1,10 +1,23 @@
-import type {
-	UseQueryConfigT,
-	UseQueryOptionsT,
-} from "@/app/interfaces/composables/use-query.types";
+import type { UseQueryConfigT, UseQueryOptionsT } from "@/app/interfaces";
 import type { CancelTokenSource } from "axios";
 import axios from "axios";
 
+/**
+ * A composable function for fetching data from an API endpoint.
+ * It provides reactive state for handling loading, errors, refetching, and cancellation.
+ *
+ * @param {UseQueryOptionsT} queryOptions - Options for the API request, including `url` and `params`.
+ * @param {UseQueryConfigT} [config] - Configuration options like `skip` to prevent automatic execution.
+ * @returns {{ data: any, isLoading: boolean, isError: boolean, error: any, refetch: Function, cancel: Function }}
+ *
+ * @example
+ * ```ts
+ * const { data, isLoading, isError, error, refetch, cancel } = useQuery({
+ *   url: "/api/users",
+ *   params: { limit: 10 }
+ * });
+ * ```
+ */
 export const useQuery = (
 	queryOptions: UseQueryOptionsT,
 	config: UseQueryConfigT = {},
@@ -15,6 +28,9 @@ export const useQuery = (
 	const error = ref<any>(null);
 	let cancelToken: CancelTokenSource | null = null;
 
+	/**
+	 * Fetches data from the API.
+	 */
 	const fetchData = async () => {
 		if (config.skip) return;
 
@@ -43,8 +59,12 @@ export const useQuery = (
 		}
 	};
 
+	/**
+	 * Cancels the ongoing request if it exists.
+	 */
 	const cancel = () => cancelToken?.cancel("Request canceled");
 
+	// Automatically fetch data on component mount
 	watchEffect(fetchData);
 
 	return {
